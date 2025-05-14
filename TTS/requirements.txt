@@ -1,0 +1,6 @@
+Flask
+gunicorn
+gtts
+wave
+pydub
+python-ffmpeg

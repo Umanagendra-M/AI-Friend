@@ -1,0 +1,7 @@
+pyaudio==0.2.13
+numpy==1.24.3
+sounddevice==0.4.6
+pydub==0.25.1
+requests==2.31.0
+SpeechRecognition==3.10.0
+wave==0.0.2

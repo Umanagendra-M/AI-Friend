@@ -1,0 +1,29 @@
+services:
+  transcriber:
+    build: ./transcriber  # Uncomment when you have transcriber code
+    #image: some_transcriber_image # Replace with your image
+    volumes:
+      - ./shared:/app/shared
+    ports:
+      - "8001:8001"
+
+  ollama:
+    build: ./ollama
+    ports:
+      - "11434:11434"
+
+
+  tts:
+    build: ./tts  # Uncomment when you have TTS code
+    #image: some_tts_image # Replace with your image
+    volumes:
+      - ./shared:/app/shared
+    ports:
+      - "8003:8003"
+    
+
+volumes:
+  ollama_data:
+    driver: local
+    # Tell Ollama to pull this model
+    # build: ./ollama # Remove the build section
