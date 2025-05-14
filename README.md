@@ -1,2 +1,2 @@
-# AI-conv
-This is a free AI friend for you to talk on any topic of your choice without thinking about cost.
+AI accoutability partner
+This is an attempt to create a LLM based rubber duck that speaks to you and listens to your problems.
