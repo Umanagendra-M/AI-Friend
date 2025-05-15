@@ -1,2 +1,5 @@
 client/llm_audio/
 client/shared/
+client/record_and_trigger_new.py
+client/record_and_trigger_old.py
+client/virtual_env/

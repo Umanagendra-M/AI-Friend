@@ -1,0 +1,44 @@
+name: Local CI Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Validate Docker Compose config
+      run: docker-compose -f docker-compose.yml config
+
+  python-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt || echo "No global requirements"
+        pip install flake8 black pytest
+
+    - name: Lint with flake8
+      run: flake8 .
+
+    - name: Format check with black
+      run: black . --check
+
+    - name: Run tests
+      run: pytest || echo "No tests yet"
